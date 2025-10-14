@@ -1,3 +1,5 @@
+# Problem 1: Fence Painting
+
 **Problem Statement: https://usaco.org/index.php?cpid=567&page=viewproblem2**
 
 Idea:
