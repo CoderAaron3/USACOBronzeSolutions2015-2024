@@ -41,7 +41,7 @@ int main(){
     for(int i = 1;i<=100;i++){
         //update ans if bessie exceeds speeed limit by greater amount
         ans = max(ans, max(0, bessie[currbessie].second - road[currroad].second));
-        //update currbessie and lastbessie if we are on a new bessie segment (advanced past currbessie segment)
+        //move to next bessie segment if current one ended (update)
         if(lastbessie + bessie[currbessie].first <= i){
             lastbessie = i;
             currbessie++;
