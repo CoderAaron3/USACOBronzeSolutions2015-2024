@@ -34,17 +34,19 @@ int main(){
     for(int i = 0;i<M;i++){
         cin>>bessie[i].first>>bessie[i].second;
     }
-    //intialize variables for curr road segment and bessie segment and last bessie and road segment
+    //intialize variables for curr road segment and bessie segment and last bessie and road position (1-100)
     int currroad = 0, currbessie = 0, lastroad = 0, lastbessie= 0;
     int ans = 0;
-    //do stimulation mile by mile
+    //do simulation mile by mile (1-100 since that is length of road)
     for(int i = 1;i<=100;i++){
         //update ans if bessie exceeds speeed limit by greater amount
         ans = max(ans, max(0, bessie[currbessie].second - road[currroad].second));
+        //update currbessie and lastbessie if we are on a new bessie segment (advanced past currbessie segment)
         if(lastbessie + bessie[currbessie].first <= i){
             lastbessie = i;
             currbessie++;
         }
+        //update road same way as bessie
         if(lastroad + road[currroad].first <= i){
             lastroad = i;
             currroad++;
