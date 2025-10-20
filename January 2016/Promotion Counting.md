@@ -15,28 +15,31 @@ The number of participants promoted from each tier equals the change in the numb
 ```c++
 #include <bits/stdc++.h>
 using namespace std;
-//initalize variables
+
+// Initialize variables
 int bronze1, bronze2;
 int silver1, silver2;
 int gold1, gold2;
 int plat1, plat2;
-int main(){
+
+int main() {
     freopen("promote.in", "r", stdin);
     freopen("promote.out", "w", stdout);
-    //input
-    cin>>bronze1>>bronze2;
-    cin>>silver1>>silver2;
-    cin>>gold1>>gold2;
-    cin>>plat1>>plat2;
-    //gold to platinum promotions calculated
-    int goldtoplat = plat2 - plat1;
-    //silver to gold promotions calculated
-    int silvertogold = goldtoplat + (gold2 - gold1);
-    //bronze to silver calculated
-    int bronzetosilver = silvertogold + (silver2-silver1);
-    //output
-    cout<<bronzetosilver<<endl;
-    cout<<silvertogold<<endl;
-    cout<<goldtoplat<<endl;
+
+    // Input the number of participants before and after for each tier
+    cin >> bronze1 >> bronze2;
+    cin >> silver1 >> silver2;
+    cin >> gold1 >> gold2;
+    cin >> plat1 >> plat2;
+
+    // Calculate promotions for each tier
+    int goldToPlat = plat2 - plat1; // Gold → Platinum
+    int silverToGold = (gold2 - gold1) + goldToPlat; // Silver → Gold
+    int bronzeToSilver = (silver2 - silver1) + silverToGold; // Bronze → Silver
+
+    // Output results
+    cout << bronzeToSilver << endl;
+    cout << silverToGold << endl;
+    cout << goldToPlat << endl;
 }
 ```
