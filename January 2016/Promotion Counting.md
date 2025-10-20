@@ -2,6 +2,7 @@
 **Problem Statement: [https://usaco.org/index.php?page=viewproblem2&cpid=591](url)
 
 Idea:
+The number of participants who promoted from gold to platinum is always the difference between the number of platinum participants before and after the contest. The number of promoters from silver to gold is similarly the difference between the number of gold participants before and after the contest. However we also have to consider the promotions from gold to platinum...
 
 Code:
 ```c++
