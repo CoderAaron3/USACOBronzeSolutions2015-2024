@@ -7,8 +7,8 @@ Idea:
 The idea for this problem is to directly stimulate the mowing of FJ. 
 - Since FJ can travel 1000 steps maximum in one direction, we use a 2005x2005 grid to represent the field and safely contain all possible coordinates.
 - Every time FJ steps on a square, that square gets time-stamped with the current step count (the total time elapsed).
-- Find quickest revisit: If we step onto a square that already has a time stamp, immediately calculate the difference in time
-Final Result: The smallest time difference we find is the answer. If the cow never steps on the same square twice, the answer is just $-1$. Easy peasy!
+- Find quickest revisit: If we step onto a square that already has a time stamp, calculate the difference in time between the last time this square was visited and the current time
+- The smallest time difference we find is the answer. If the cow never steps on the same square twice, the answer is just -1.
 
 Code:
 
