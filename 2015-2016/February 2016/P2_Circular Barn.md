@@ -16,22 +16,32 @@ This problem is about finding the optimal exit location to minimize the total wa
 ```c++
 #include <bits/stdc++.h>
 using namespace std;
-int N;
-vector<int>rooms;
+int N; // Number of rooms
+vector<int>rooms; // Cows in each room (0-indexed)
 int main(){
-    cin>>N;
-    rooms.assign(N, 0);
-    for(int i = 0;i<N;i++){
-        cin>>rooms[i];
-    }
-    int ans = INT_MAX;
-    for(int i = 0;i<N;i++){
-        int curr = 0;
-        for(int j = i+1;j<N+i;j++){
-            int currroom = rooms[j % N];
-            curr += currroom * (j - i);
-        }
-        ans = min(ans, curr);
-    }
-    cout<<ans<<endl;
+    // Standard I/O.
+    freopen("cbarn.in", "r", stdin);
+    freopen("cbarn.out", "w", stdout);
+    cin>>N;
+    rooms.assign(N, 0);
+    for(int i = 0;i<N;i++){
+        cin>>rooms[i]; // Read cow counts
+    }
+    int ans = INT_MAX; // Store the best (minimum) total distance
+    // Outer loop: Try every room 'i' as the starting exit door (O(N))
+    for(int i = 0;i<N;i++){
+        int curr = 0; // Total distance for door 'i'
+        // Inner loop: Iterate over all N rooms starting after the door, simulating the circle
+        // The loop runs from i+1 up to N+i
+        for(int j = i+1;j<N+i;j++){
+            //j % N gives the true circular index (0 to N-1) of the room
+            int currroom = rooms[j % N]; 
+            // Calculate distance: (cows in room) * (steps from door i)
+            // j - i gives the steps taken (distance)
+            curr += currroom * (j - i); 
+        }
+        // Update the global minimum answer
+        ans = min(ans, curr); 
+    }
+    cout<<ans<<endl; // Output minimum total distance
 }
